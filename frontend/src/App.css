@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  height: 60px;
+  background-color: rgba(223, 222, 222, 0.747);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.header-left {
+  line-height: 60px;
+  padding-left: 8%;
+  font-weight: 420;
+  font-size: 20px;
+}
+
+.form-left {
+  margin-left: 9%;
+  margin-top: 5%;
+  height: 92%;
+  width: 30%;
+}
