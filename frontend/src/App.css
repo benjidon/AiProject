@@ -10,14 +10,50 @@
 
 .header-left {
   line-height: 60px;
-  padding-left: 8%;
+  padding-left: 2%;
   font-weight: 420;
   font-size: 20px;
 }
 
+.header-tabs {
+  position: absolute;
+  margin-left: 3%;
+  margin-top: 28px;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: right;
+}
+
 .form-left {
-  margin-left: 9%;
+  margin-left: 11%;
   margin-top: 5%;
-  height: 92%;
-  width: 30%;
+  padding: 10px;
+  height: 500px;
+  width: 35%;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(154, 204, 250, 0.884);
+}
+
+.form-right {
+  margin-left: 5%;
+  margin-top: 5%;
+  padding: 10px;
+  height: 500px;
+  width: 35%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.claim-table {
+  margin: 0 auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
