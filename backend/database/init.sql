@@ -1,5 +1,37 @@
 CREATE DATABASE IF NOT EXISTS medicare_claims;
 
+CREATE TABLE providers (
+	provider VARCHAR(9)
+);
+
+CREATE TABLE benes (
+	BeneID VARCHAR(9),
+	DOB DATE,
+	DOD DATE,
+	Gender INT,
+	Race INT,
+	RenalDiseaseIndicator INT,
+	State INT,
+	County INT,
+	NoOfMonths_PartACov INT,
+	NoOfMonths_PartBCov INT,
+	ChronicCond_Alzheimer INT,
+	ChronicCond_Heartfailure INT,
+	ChronicCond_KidneyDisease INT,
+	ChronicCond_Cancer INT,
+	ChronicCond_ObstrPulmonary INT,
+	ChronicCond_Depression INT,
+	ChronicCond_Diabetes INT,
+	ChronicCond_IschemicHeart INT,
+	ChronicCond_Osteoporasis INT,
+	ChronicCond_rheumatoidarthritis INT,
+	ChronicCond_stroke INT,
+	IPAnnualReimbursementAmt INT,
+	IPAnnualDeductibleAmt INT,
+	OPAnnualReimbursementAmt INT,
+	OPAnnualDeductibleAmt INT
+);
+
 CREATE TABLE claims (
 	BeneID VARCHAR(9),
 	ClaimID VARCHAR(8),
