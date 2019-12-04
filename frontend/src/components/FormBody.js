@@ -2,6 +2,7 @@ import { Form, Input, Select, Button } from "antd";
 import React from "react";
 import "./FormBody.css";
 import "antd/dist/antd.css";
+import { connect } from "react-redux";
 
 const { Option } = Select;
 
@@ -24,7 +25,7 @@ const educationNum = {
   Masters: 14
 };
 
-export default class FormBody extends React.Component {
+export class FormBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -81,6 +82,11 @@ export default class FormBody extends React.Component {
 
   setFinalWeight = e => {
     this.setState({ fnlwgt: [e] });
+  };
+
+  handleSubmit = () => {
+    console.log("hi");
+    this.props.saveCase(this.state);
   };
 
   formLeft() {
@@ -325,6 +331,7 @@ export default class FormBody extends React.Component {
             style={{ height: "45px", width: "120px" }}
             htmlType="submit"
             type="primary"
+            onClick={this.handleSubmit}
           >
             Save Case
           </Button>
@@ -341,3 +348,9 @@ export default class FormBody extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return { saveCase: state => dispatch({ type: "SAVE_CASE", payload: state }) };
+};
+
+export default connect(null, mapDispatchToProps)(FormBody);
