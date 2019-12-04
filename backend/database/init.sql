@@ -21,7 +21,7 @@ CREATE TABLE profiles (
 );
 
 SET GLOBAL read_only = OFF;
-LOAD DATA LOCAL INFILE './Beneficiarydata.csv' INTO TABLE profiles
+LOAD DATA LOCAL INFILE './Adult_Income_Profiles.csv' INTO TABLE profiles
 COLUMNS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 ESCAPED BY '"'

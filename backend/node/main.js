@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-// var Validator = require('./Routes/Validator.js');
 var CnnPool = require('./Routes/CnnPool.js');
 var async = require('async');
 var cors = require('cors');
@@ -44,8 +43,7 @@ app.use(bodyParser.json());
 app.use(CnnPool.router);
 
 // Load all subroutes
-app.use('/Claims', require('./Routes/Claims/Claims.js'));
-app.use('/Benefs', require('./Routes/Benefs/Benef.js'));
+app.use('/Profiles', require('./Routes/Profiles.js'));
 
 // Handler of last resort.
 // Print a stacktrace to console and send a 500 response.
