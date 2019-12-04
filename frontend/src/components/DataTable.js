@@ -1,7 +1,7 @@
 import React from "react";
+import "antd/dist/antd.css";
 import { Table } from "antd";
-import "antd/lib/table/style/index.css";
-import "./App.css";
+import "./DataTable.css";
 
 export default class DataTable extends React.Component {
   sampleData = [
@@ -100,7 +100,11 @@ export default class DataTable extends React.Component {
   render() {
     return (
       <div class="table-container">
-        <Table dataSource={this.sampleData} columns={this.columns}></Table>
+        <Table
+          dataSource={this.sampleData}
+          columns={this.columns}
+          pagination={false}
+        ></Table>
       </div>
     );
   }
