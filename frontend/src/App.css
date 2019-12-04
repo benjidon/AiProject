@@ -3,52 +3,91 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: right;
   height: 60px;
-  background-color: rgba(223, 222, 222, 0.747);
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: white;
+  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.6), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
 }
 
 .header-left {
+  display: flex;
+  flex-direction: right;
+  cursor: pointer;
   line-height: 60px;
   padding-left: 2%;
-  font-weight: 420;
+  font-weight: 460;
   font-size: 20px;
+  box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.6);
+  height: 60px;
+  width: 239px;
+  user-select: none;
+}
+.header-left:hover {
+  /* background-color: rgba(223, 223, 223, 0.842); */
+  box-shadow: -3px -3px 5px 1px rgba(0, 0, 0, 0.6);
 }
 
-.header-tabs {
-  position: absolute;
-  margin-left: 3%;
-  margin-top: 28px;
+.header-right {
+  display: flex;
+  flex-direction: right;
+  padding-left: 100px;
+  line-height: 45px;
+}
+
+.tab {
+  list-style: none;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 40px;
+  user-select: none;
 }
 
 .form-body {
   display: flex;
+  flex-direction: column;
+  background-color: rgba(245, 245, 245, 0.788);
+  height: calc(100vh - 60px);
+  width: 100vw;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
   flex-direction: right;
+  margin-top: 45px;
+  width: 1167px;
+  height: calc(100vh - 150px);
 }
 
 .form-left {
-  margin-left: 11%;
-  margin-top: 5%;
-  padding: 10px;
-  height: 500px;
-  width: 35%;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: rgba(154, 204, 250, 0.884);
+  width: 625px;
+  padding: 20px;
+  margin-left: 10px;
 }
 
 .form-right {
-  margin-left: 5%;
-  margin-top: 5%;
-  padding: 10px;
-  height: 500px;
-  width: 35%;
-  border: 1px solid black;
-  border-radius: 10px;
+  width: 542px;
+  padding: 20px;
+  margin-left: -10px;
+}
+
+.form-item {
+  margin-top: -10px;
+}
+
+.special {
+  display: flex;
+  flex-direction: right;
 }
 
 .claim-table {
   margin: 0 auto;
+}
+
+.table-container {
+  width: 80vw;
 }
 
 table,
