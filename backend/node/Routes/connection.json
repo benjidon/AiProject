@@ -2,5 +2,5 @@
     "host": "localhost",
     "user": "root",
     "password": "password",
-    "database": "medicare_claims"
+    "database": "adult_profiles"
 }
