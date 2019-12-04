@@ -5,9 +5,12 @@ var CnnPool = require('./CnnPool.js');
 
 var router = Express.Router({caseSensitive: true});
 
-router.baseURL = '/Claims';
+router.baseURL = '/Profiles';
 
 router.get('/', function(req, res) {
+
+    console.log('GETTER')
+
 	req.cnn.chkQry("SELECT * FROM profiles", null,
 	 (err, claims) => {
 		 if (!err)
@@ -18,6 +21,9 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
    var body = req.body;
+
+   console.log('POSTER')
+   console.log(body)
 
    async.waterfall([
    (cb) => {

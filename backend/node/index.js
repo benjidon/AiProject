@@ -19,7 +19,7 @@ if (process.argv[2] === "-p" && process.argv[3]) {
 
 app.use(function(req, res, next) {
   console.log("Handling " + req.path + "/" + req.method);
-  res.header("Access-Control-Allow-Origin", "http://localhost:" + portNum);
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
@@ -47,6 +47,12 @@ app.use(CnnPool.router);
 
 // Load all subroutes
 app.use("/Profiles", require("./Routes/Profiles.js"));
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 // Handler of last resort.
 // Print a stacktrace to console and send a 500 response.
