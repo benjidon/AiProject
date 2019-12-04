@@ -35,7 +35,7 @@ class App extends React.Component {
                 className="tab"
                 style={
                   this.state.activeTab == 1
-                    ? { borderBottom: "3px solid rgb(11, 94, 248)" }
+                    ? { borderBottom: "3px solid #40a9ff" }
                     : {}
                 }
                 onClick={key => this.setActiveTab(1)}
@@ -45,7 +45,7 @@ class App extends React.Component {
               <Tab
                 style={
                   this.state.activeTab == 2
-                    ? { borderBottom: "3px solid rgb(11, 94, 248)" }
+                    ? { borderBottom: "3px solid #40a9ff" }
                     : {}
                 }
                 className="tab"
