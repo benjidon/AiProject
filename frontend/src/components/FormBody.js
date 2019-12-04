@@ -5,7 +5,84 @@ import "antd/dist/antd.css";
 
 const { Option } = Select;
 
+const educationNum = {
+  Bachelors: 13,
+  "Some-college": 10,
+  "11th": 7,
+  "HS-grad": 9,
+  "Prof-school": 15,
+  "Assoc-acdm": 12,
+  "Assoc-voc": 11,
+  "9th": 5,
+  "7th-8th": 4,
+  "5th-6th": 3,
+  "1st-4th": 2,
+  Preschool: 1,
+  "10th": 6,
+  "11th": 7,
+  "12th": 8,
+  Masters: 14
+};
+
 export default class FormBody extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  setEducation = e => {
+    this.setState({ "education-num": [educationNum[e]] });
+    this.setState({ education: [e] });
+  };
+
+  setSex = e => {
+    this.setState({ sex: [e] });
+  };
+
+  setAge = e => {
+    this.setState({ age: [e] });
+  };
+
+  setRace = e => {
+    this.setState({ race: [e] });
+  };
+
+  setNative = e => {
+    this.setState({ "native-country": [e] });
+  };
+
+  setRelationship = e => {
+    this.setState({ relationship: [e] });
+  };
+
+  setMarital = e => {
+    this.setState({ "marital-status": [e] });
+  };
+
+  setWorkclass = e => {
+    this.setState({ workclass: [e] });
+  };
+
+  setOccupation = e => {
+    this.setState({ occupation: [e] });
+  };
+
+  setGain = e => {
+    this.setState({ "capital-gain": [e] });
+  };
+
+  setLoss = e => {
+    this.setState({ "capital-loss": [e] });
+  };
+
+  setHours = e => {
+    this.setState({ "hours-per-week": [e] });
+  };
+
+  setFinalWeight = e => {
+    this.setState({ fnlwgt: [e] });
+  };
+
   formLeft() {
     return (
       <div class="form-left">
@@ -15,6 +92,7 @@ export default class FormBody extends React.Component {
             <Select
               style={{ marginTop: "-80px", width: "300px" }}
               placeholder="Select Education"
+              onChange={e => this.setEducation(e)}
             >
               <Option value="Preschool"> Preschool</Option>
               <Option value="1st-4th"> 1st-4th</Option>
@@ -39,6 +117,7 @@ export default class FormBody extends React.Component {
               <Select
                 style={{ width: "300px" }}
                 placeholder="Select Male / Female"
+                onChange={e => this.setSex(e)}
               >
                 <Option value="Male">Male</Option>
                 <Option value="Female">Female</Option>
@@ -51,6 +130,7 @@ export default class FormBody extends React.Component {
                 }}
                 placeholder="0"
                 type="number"
+                onChange={e => this.setAge(e)}
               />
             </Form.Item>
           </div>
@@ -58,6 +138,7 @@ export default class FormBody extends React.Component {
             <Select
               style={{ marginTop: "-80px", width: "300px" }}
               placeholder="Select Race"
+              onChange={e => this.setRace(e)}
             >
               <Option value="White">White</Option>
               <Option value="Asian-Pac-Islander">Asian Pacific Islander</Option>
@@ -70,6 +151,7 @@ export default class FormBody extends React.Component {
             <Select
               style={{ marginTop: "-80px", width: "300px" }}
               placeholder="Select Country of Origin"
+              onChange={e => this.setCountry(e)}
             >
               <Option value="United-States"> United-States</Option>
               <Option value=" Cambodia"> Cambodia</Option>
@@ -120,6 +202,7 @@ export default class FormBody extends React.Component {
             <Select
               style={{ width: "300px" }}
               placeholder="Select Current Relationship"
+              onChange={e => this.setRelationship(e)}
             >
               <Option value="Wife">Wife</Option>
               <Option value="Husband">Husband</Option>
@@ -133,6 +216,7 @@ export default class FormBody extends React.Component {
             <Select
               style={{ marginTop: "-80px", width: "300px" }}
               placeholder="Select Marriage Info"
+              onChange={e => this.setMarital(e)}
             >
               <Option value="Married-civ-spouse">Married-civ-spouse</Option>
               <Option value="Divorced">Divorced</Option>
@@ -159,8 +243,8 @@ export default class FormBody extends React.Component {
             <Select
               style={{ marginTop: "-80px", width: "300px" }}
               placeholder="Select Business Sector"
+              onChange={e => this.setWorkclass(e)}
             >
-              {/* workclass: Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked. */}
               <Option value="Private">Private</Option>
               <Option value="Self-emp-not-inc">Self employed, No Income</Option>
               <Option value="Self-emp-inc">Self employed, Income</Option>
@@ -175,6 +259,7 @@ export default class FormBody extends React.Component {
             <Select
               style={{ marginTop: "-80px", width: "300px" }}
               placeholder="Select Occupation"
+              onChange={e => this.setOccupation(e)}
             >
               <Option value="Private">Private</Option>
               <Option value="Self-emp-not-inc">Self employed, No Income</Option>
@@ -194,6 +279,7 @@ export default class FormBody extends React.Component {
                 }}
                 placeholder="0"
                 type="number"
+                onChange={e => this.setGain(e)}
               />
             </Form.Item>
             <Form.Item style={{ marginLeft: "20px" }} label="Capital Loss">
@@ -203,6 +289,7 @@ export default class FormBody extends React.Component {
                 }}
                 placeholder="0"
                 type="number"
+                onChange={e => this.setLoss(e)}
               />
             </Form.Item>
           </div>
@@ -213,6 +300,7 @@ export default class FormBody extends React.Component {
               }}
               placeholder="0"
               type="number"
+              onChange={e => this.setHours(e)}
             />
           </Form.Item>
           <Form.Item label="Final Weight">
@@ -222,6 +310,7 @@ export default class FormBody extends React.Component {
               }}
               placeholder="0"
               type="number"
+              onChange={e => this.setFinalWeight(e)}
             />
           </Form.Item>
         </Form>
