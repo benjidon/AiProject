@@ -85,7 +85,6 @@ export class FormBody extends React.Component {
   };
 
   handleSubmit = () => {
-    console.log("hi");
     this.props.saveCase(this.state);
   };
 
