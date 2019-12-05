@@ -8,6 +8,7 @@ from tensorflow.keras import layers
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
+import tensorflowjs as tfjs
 
 # Create the initial dataframe containing all the features
 def createDataframe(data_loc, adult_cols):
@@ -156,6 +157,9 @@ def main():
     # < 0.5 : 0, >= 0.5 : 1
     prediction = model.predict(input_ds)
     print(prediction)
+
+    tfjs_target_dir = "models"
+    tfjs.converters.save_keras_model(model, tfjs_target_dir)
 
 if __name__== "__main__":
     main()
