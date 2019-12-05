@@ -1,3 +1,5 @@
+const tf = require("@tensorflow/tfjs");
+
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
@@ -5,6 +7,24 @@ var CnnPool = require("./Routes/CnnPool.js");
 var async = require("async");
 var cors = require("cors");
 var portNum;
+
+// const model = tf.loadLayersModel("modle.json", { weightPathPrefix: "./" });
+// async function test() {
+//   const model = await tf.loadLayersModel(
+//     "https://svmadiraju.github.io/tf/index.json"
+//   );
+//   console.log(model);
+// }
+
+// test();
+
+console.log("eh?");
+const spawn = require("child_process").spawn;
+
+const pythonProcess = spawn("python", ["./test.py", d2]);
+pythonProcess.stdout.on("data", data => {
+  console.log("WEEOO", data.toString());
+});
 
 var app = express();
 
@@ -49,10 +69,13 @@ app.use(CnnPool.router);
 app.use("/Profiles", require("./Routes/Profiles.js"));
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // Handler of last resort.
 // Print a stacktrace to console and send a 500 response.
