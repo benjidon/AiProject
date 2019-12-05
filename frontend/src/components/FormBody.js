@@ -32,56 +32,59 @@ export class FormBody extends React.Component {
   }
 
   setEducation = e => {
-    this.setState({ "education-num": [educationNum[e]] });
-    this.setState({ education: [e] });
+    this.setState({ "EducationNum": [educationNum[e]] });
+    this.setState({ "Education": [e] });
   };
 
   setSex = e => {
-    this.setState({ sex: [e] });
+    this.setState({ "Sex": [e] });
   };
 
   setAge = e => {
-    this.setState({ age: [e] });
+    this.setState({ "Age": [e] });
   };
 
   setRace = e => {
-    this.setState({ race: [e] });
+    this.setState({ "Race": [e] });
   };
 
   setNative = e => {
-    this.setState({ "native-country": [e] });
+    this.setState({ "NativeCountry": [e] });
   };
 
   setRelationship = e => {
-    this.setState({ relationship: [e] });
+    this.setState({ "Relationship": [e] });
   };
 
   setMarital = e => {
-    this.setState({ "marital-status": [e] });
+    this.setState({ "MaritalStatus": [e] });
   };
 
   setWorkclass = e => {
-    this.setState({ workclass: [e] });
+    this.setState({ "Workclass": [e] });
   };
 
   setOccupation = e => {
-    this.setState({ occupation: [e] });
+    this.setState({ "Occupation": [e] });
   };
 
   setGain = e => {
-    this.setState({ "capital-gain": [e] });
+    this.setState({ "CapitalGain": e.target.value });
   };
 
   setLoss = e => {
-    this.setState({ "capital-loss": [e] });
+    this.setState({ "CapitalLoss": e.target.value });
   };
 
   setHours = e => {
-    this.setState({ "hours-per-week": [e] });
+    console.log('hrs')
+    console.log(e)
+    console.log(e.target.value)
+    this.setState({ "HoursPerWeek": e.target.value});
   };
 
   setFinalWeight = e => {
-    this.setState({ fnlwgt: [e] });
+    this.setState({ "Fnlwgt": e.target.value });
   };
 
   handleSubmit = () => {

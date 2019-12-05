@@ -6,7 +6,7 @@ USE adult_profiles;
 CREATE TABLE profiles (
 	Age INT,
 	Workclass VARCHAR(25),
-	Income INT,
+	Fnlwgt INT,
 	Education VARCHAR(25),
 	EducationNum INT,
 	MaritalStatus VARCHAR(25),
