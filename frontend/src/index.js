@@ -7,9 +7,13 @@ import { Provider } from "react-redux";
 import { loancases as rootReducer } from "./reducers/loancases.js";
 import rootSaga from "./sagas/sagas";
 import createSagaMiddleware from "redux-saga";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
+);
 
 ReactDOM.render(
   <Provider store={store}>

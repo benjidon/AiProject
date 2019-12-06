@@ -11,6 +11,7 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import sys
+import json
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -20,12 +21,9 @@ import tensorflow_hub as hub
 from tensorflow import feature_column
 from tensorflow.keras import layers
 from sklearn.model_selection import train_test_split
-from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
 from sklearn.preprocessing import MinMaxScaler
-from keras.models import load_model
-from keras.models import model_from_json
-
 
 # ### Clean data and create dataframe:
 
@@ -260,7 +258,7 @@ model.compile(optimizer='adam',
 
 model.fit(train_ds,
           validation_data=val_ds,
-          epochs=2,
+          epochs=1,
           verbose=0)
 
 
@@ -279,9 +277,11 @@ d = {'age': [31], 'workclass': ['Private'], 'fnlwgt': [45781], 'education': ['Ma
      'native-country': ['United-States'], 'income': [1]}
 d2 = {'age': [15], 'workclass': ['Without-pay'], 'fnlwgt': [45781], 'education': ['1st-4th'], 'education-num': [2], 
      'marital-status': ['Never-married'], 'occupation': ['Other-service'], 'relationship': ['Not-in-family'], 
-     'race': ['White'], 'sex': ['Female'], 'capital-gain': [0], 'capital-loss': [0], 'hours-per-week': [50], 
+     'race': ['White'], 'sex': ['Female'], 'capital-gain': [800], 'capital-loss': [450], 'hours-per-week': [50], 
      'native-country': ['United-States'], 'income': [1]}
-df_input = pd.DataFrame(data=d)
+
+d3 = json.loads(sys.argv[1])
+df_input = pd.DataFrame(data=d3)
 df_input
 input_ds = df_to_dataset(df_input, shuffle=False, batch_size=batch_size)
 
@@ -289,7 +289,7 @@ input_ds = df_to_dataset(df_input, shuffle=False, batch_size=batch_size)
 # In[21]:
 
 
-print(model.predict(input_ds))
+print(model.predict(input_ds, verbose=0))
 
 
 # In[22]:

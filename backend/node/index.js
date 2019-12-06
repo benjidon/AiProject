@@ -3,7 +3,7 @@ const tf = require("@tensorflow/tfjs");
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
-var CnnPool = require("./Routes/CnnPool.js");
+// var CnnPool = require("./Routes/CnnPool.js");
 var async = require("async");
 var cors = require("cors");
 var portNum;
@@ -17,14 +17,6 @@ var portNum;
 // }
 
 // test();
-
-console.log("eh?");
-const spawn = require("child_process").spawn;
-
-const pythonProcess = spawn("python", ["./test.py", d2]);
-pythonProcess.stdout.on("data", data => {
-  console.log("WEEOO", data.toString());
-});
 
 var app = express();
 
@@ -63,7 +55,7 @@ app.options("/*", function(req, res) {
 app.use(bodyParser.json());
 
 // Add DB connection, with smart chkQry method, to |req|
-app.use(CnnPool.router);
+// app.use(CnnPool.router);
 
 // Load all subroutes
 app.use("/Profiles", require("./Routes/Profiles.js"));

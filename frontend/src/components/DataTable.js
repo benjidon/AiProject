@@ -2,8 +2,9 @@ import React from "react";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 import "./DataTable.css";
+import { connect } from "react-redux";
 
-export default class DataTable extends React.Component {
+export class DataTable extends React.Component {
   sampleData = [
     {
       key: "1",
@@ -20,7 +21,8 @@ export default class DataTable extends React.Component {
       "capital-gain": 12,
       "capital-loss": 2,
       "hours-per-week": 40,
-      "native-country": "Portugal"
+      "native-country": "Portugal",
+      prediction: 12
     }
   ];
 
@@ -94,14 +96,20 @@ export default class DataTable extends React.Component {
       title: "Native Country",
       dataIndex: "native-country",
       key: "native-country"
+    },
+    {
+      title: "Prediction",
+      dataIndex: "prediction",
+      key: "prediction",
+      render: text => <b>{text}</b>
     }
   ];
 
   render() {
     return (
-      <div class="table-container">
+      <div>
         <Table
-          dataSource={this.sampleData}
+          dataSource={this.props.profiles}
           columns={this.columns}
           pagination={false}
         ></Table>
@@ -109,3 +117,10 @@ export default class DataTable extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    profiles: state
+  };
+};
+export default connect(mapStateToProps, null)(DataTable);

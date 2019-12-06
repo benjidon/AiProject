@@ -8,10 +8,11 @@ const { Option } = Select;
 
 const educationNum = {
   Bachelors: 13,
+  Doctorate: 15,
   "Some-college": 10,
   "11th": 7,
   "HS-grad": 9,
-  "Prof-school": 15,
+  "Prof-school": 16,
   "Assoc-acdm": 12,
   "Assoc-voc": 11,
   "9th": 5,
@@ -32,59 +33,60 @@ export class FormBody extends React.Component {
   }
 
   setEducation = e => {
-    this.setState({ "EducationNum": [educationNum[e]] });
-    this.setState({ "Education": [e] });
+    this.setState({ "education-num": [educationNum[e]] });
+    this.setState({ education: [e] });
   };
 
   setSex = e => {
-    this.setState({ "Sex": [e] });
+    this.setState({ sex: [e] });
   };
 
   setAge = e => {
-    this.setState({ "Age": [e] });
+    this.setState({ age: [parseInt(e.target.value)] });
   };
 
   setRace = e => {
-    this.setState({ "Race": [e] });
+    this.setState({ race: [e] });
   };
 
   setNative = e => {
-    this.setState({ "NativeCountry": [e] });
+    this.setState({ "native-country": [e] });
   };
 
   setRelationship = e => {
-    this.setState({ "Relationship": [e] });
+    this.setState({ relationship: [e] });
   };
 
   setMarital = e => {
-    this.setState({ "MaritalStatus": [e] });
+    this.setState({ "marital-status": [e] });
   };
 
   setWorkclass = e => {
-    this.setState({ "Workclass": [e] });
+    this.setState({ workclass: [e] });
   };
 
   setOccupation = e => {
-    this.setState({ "Occupation": [e] });
+    this.setState({ occupation: [e] });
   };
 
   setGain = e => {
-    this.setState({ "CapitalGain": e.target.value });
+    this.setState({ "capital-gain": [parseInt(e.target.value)] });
   };
 
   setLoss = e => {
-    this.setState({ "CapitalLoss": e.target.value });
+    this.setState({ "capital-loss": [parseInt(e.target.value)] });
   };
 
   setHours = e => {
-    console.log('hrs')
-    console.log(e)
-    console.log(e.target.value)
-    this.setState({ "HoursPerWeek": e.target.value});
+    this.setState({ "hours-per-week": [parseInt(e.target.value)] });
   };
 
   setFinalWeight = e => {
-    this.setState({ "Fnlwgt": e.target.value });
+    this.setState({ fnlwgt: [parseInt(e.target.value)] });
+  };
+
+  setCountry = e => {
+    this.setState({ "native-country": [e] });
   };
 
   handleSubmit = () => {
@@ -162,12 +164,12 @@ export class FormBody extends React.Component {
               onChange={e => this.setCountry(e)}
             >
               <Option value="United-States"> United-States</Option>
-              <Option value=" Cambodia"> Cambodia</Option>
-              <Option value=" England"> England</Option>
-              <Option value=" Puerto-Rico"> Puerto-Rico</Option>
-              <Option value=" Canada"> Canada</Option>
-              <Option value=" Germany"> Germany</Option>
-              <Option value=" Outlying-US(Guam-USVI-etc)">
+              <Option value="Cambodia"> Cambodia</Option>
+              <Option value="England"> England</Option>
+              <Option value="Puerto-Rico"> Puerto-Rico</Option>
+              <Option value="Canada"> Canada</Option>
+              <Option value="Germany"> Germany</Option>
+              <Option value="Outlying-US(Guam-USVI-etc)">
                 Outlying-US(Guam-USVI-etc)
               </Option>
               <Option value="India"> India</Option>
@@ -200,7 +202,7 @@ export class FormBody extends React.Component {
               <Option value="Thailand"> Thailand</Option>
               <Option value="Yugoslavia"> Yugoslavia</Option>
               <Option value="El-Salvador"> El-Salvador</Option>
-              <Option value="Trinadad&Tobago"> Trinadad and Tobago</Option>
+              <Option value="TrinadadandTobago"> Trinadad and Tobago</Option>
               <Option value="Peru"> Peru</Option>
               <Option value="Hong"> Hong</Option>
               <Option value="Holand-Netherlands">Holand-Netherlands</Option>
@@ -269,14 +271,20 @@ export class FormBody extends React.Component {
               placeholder="Select Occupation"
               onChange={e => this.setOccupation(e)}
             >
-              <Option value="Private">Private</Option>
-              <Option value="Self-emp-not-inc">Self employed, No Income</Option>
-              <Option value="Self-emp-inc">Self employed, Income</Option>
-              <Option value="Federal-gov">Federal Government</Option>
-              <Option value="Local-gov">Local Government</Option>
-              <Option value="PrState-govivate">State Government</Option>
-              <Option value="Without-pay">Without Pay</Option>
-              <Option value="Never-worked">Never Worked</Option>
+              <Option value="Tech-support">Tech-support</Option>
+              <Option value="Craft-repair">Craft-repair</Option>
+              <Option value="Other-service">Other-service</Option>
+              <Option value="Sales">Sales</Option>
+              <Option value="Exec-managerial">Exec-managerial</Option>
+              <Option value="Prof-specialty">Prof-specialty</Option>
+              <Option value="Handlers-cleaners"> Handlers-cleaners</Option>
+              <Option value="Machine-op-inspct">Machine-op-inspct</Option>
+              <Option value="Adm-clerical">Adm-clerical</Option>
+              <Option value="Farming-fishing">Farming-fishing</Option>
+              <Option value="Transport-moving">Transport-moving</Option>
+              <Option value="Priv-house-serv">Priv-house-serv</Option>
+              <Option value="Protective-serv">Protective-serv</Option>
+              <Option value="Armed-Forces">Armed-Forces</Option>
             </Select>
           </Form.Item>
           <div style={{ marginTop: "-22px" }} class="special">

@@ -1,6 +1,6 @@
 {
-    "host": "localhost",
-    "user": "root",
-    "password": "password",
-    "database": "adult_profiles"
+  "host": "localhost",
+  "user": "root",
+  "password": "bhead123",
+  "database": "adult_profiles"
 }
